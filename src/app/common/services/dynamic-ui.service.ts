@@ -22,12 +22,31 @@ export class DynamicUiService {
 const PAGELAYOUTS: IPageLayout[] = [
 	{
 		name: 'PageOne',
-		def: [
+		contentBlocks: [
 			{
-				name: 'ContentBlock1'
+				name: 'ContentBlock1Component',
+				inputs: [
+					{ key: 'message', value: 'This is the 1st content block of the content block 1 component' },
+					{ key: 'background-color', value: 'red' }
+				]
 			},
 			{
-				name: 'ContentBlock2'
+				name: 'ContentBlock1Component',
+				inputs: [
+					{ key: 'message', value: 'This is the 2nd content block of the content block 1 component' },
+					{ key: 'background-color', value: 'green' }
+				]
+			}
+		]
+	},
+	{
+		name: 'PageTwo',
+		contentBlocks: [
+			{
+				name: 'ContentBlock2Component',
+				inputs: [
+					{ key: 'message', value: 'This is a content block 2 component' }
+				]
 			}
 		]
 	}

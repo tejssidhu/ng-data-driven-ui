@@ -10,19 +10,19 @@ import { ContentBlock1Component, ContentBlock2Component } from './content-blocks
 import PageRendererComponent from './page-renderer.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ContentBlock1Component,
-    ContentBlock2Component,
-    PageRendererComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [
-    DynamicUiService
-  ],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent,
+		ContentBlock1Component,
+		ContentBlock2Component,
+		PageRendererComponent
+	],
+	imports: [
+		BrowserModule,
+		AppRoutingModule
+	],
+	providers: [
+		DynamicUiService
+	],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }

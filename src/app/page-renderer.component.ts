@@ -3,6 +3,8 @@ import { Component, ViewContainerRef, ViewChild,
 import { ContentBlock1Component } from './content-blocks/content-block1.component';
 import { ContentBlock2Component } from './content-blocks/content-block2.component';
 import { IPageLayout, IContentBlock } from './common';
+import { IPageEvent } from './common/models/page-event';
+import { ContentBlockBaseComponent } from './content-blocks/content-block-base.component';
 
 @Component({
 	selector: 'app-page-renderer',
@@ -18,9 +20,10 @@ export default class PageRendererComponent {
 		'ContentBlock1Component': ContentBlock1Component,
 		'ContentBlock2Component': ContentBlock2Component
 	};
+	pageEvents: IPageEvent[];
 
 	constructor(private resolver: ComponentFactoryResolver) {
-
+		this.pageEvents = [];
 	}
 
   	// components: a string value of the component you want to create
@@ -48,10 +51,18 @@ export default class PageRendererComponent {
 			const factory = this.resolver.resolveComponentFactory(componentType);
 
 			// We create the component using the factory and the injector
-			const component = factory.create(injector);
+			// const component = factory.create(injector);
 
 			// We insert the component into the dom container
-			this.pageContentContainer.insert(component.hostView);
+			// this.pageContentContainer.insert(component.hostView);
+
+			const component = this.pageContentContainer.createComponent(factory, index, injector).instance;
+			(component as ContentBlockBaseComponent).raisedEvents = this.pageEvents;
+			component['emitEvent'].subscribe((eventData) => {
+				this.pageEvents.push(eventData);
+				console.log(eventData);
+			});
+
 		}
 	}
 }

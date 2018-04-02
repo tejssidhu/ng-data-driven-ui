@@ -6,6 +6,7 @@ export interface IPageLayout {
 
 export interface IContentBlock {
 	name: string;
+	id: string;
 	inputs?: IKeyValue[];
 }
 

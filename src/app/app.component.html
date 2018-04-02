@@ -1,7 +1,9 @@
 <div>
-    <h2>Select a component to render</h2>
-    <button (click)="createContentBlock1Component()">Content Block 1</button>
-    <button (click)="createContentBlock2Component()">Content Block 2</button>
-    <app-page-renderer [componentData]="componentData"></app-page-renderer>
+    <h2>Select a page layout</h2>
+    <ul>
+        <ng-container *ngFor="let pageLayout of pageLayouts">
+            <li><a [routerLink]="['/page/', pageLayout.name]">{{pageLayout.title}}</a></li>
+        </ng-container>
+    </ul>
 </div>
 <router-outlet></router-outlet>

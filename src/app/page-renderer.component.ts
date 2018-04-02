@@ -30,6 +30,8 @@ export default class PageRendererComponent {
 			return;
 		}
 
+		this.pageContentContainer.clear();
+
 		for (let index = 0; index < pageDef.contentBlocks.length; index++) {
 			const contentBlock: IContentBlock = pageDef.contentBlocks[index];
 

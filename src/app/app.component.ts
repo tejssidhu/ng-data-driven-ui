@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DynamicUiService } from './common/services/dynamic-ui.service';
+import { IPageLayout } from './common';
 
 @Component({
 	selector: 'app-root',
@@ -7,22 +8,14 @@ import { DynamicUiService } from './common/services/dynamic-ui.service';
 	styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-	componentData = null;
 	title = 'app';
+	pageLayouts: IPageLayout[];
 
 	constructor(private dynamicUiService: DynamicUiService) {
 
 	}
 
 	ngOnInit(): void {
-
-	}
-
-	createContentBlock1Component() {
-		this.componentData = this.dynamicUiService.getPageLayout('PageOne');
-	}
-
-	createContentBlock2Component() {
-		this.componentData = this.dynamicUiService.getPageLayout('PageTwo');
+		this.dynamicUiService.getPageLayouts().subscribe((pageLayouts) => this.pageLayouts = pageLayouts);
 	}
 }

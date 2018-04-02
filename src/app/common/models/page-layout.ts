@@ -1,5 +1,6 @@
 export interface IPageLayout {
 	name: string;
+	title: string;
 	contentBlocks: IContentBlock[];
 }
 

@@ -22,6 +22,7 @@ export class DynamicUiService {
 const PAGELAYOUTS: IPageLayout[] = [
 	{
 		name: 'PageOne',
+		title: 'Page One',
 		contentBlocks: [
 			{
 				name: 'ContentBlock1Component',
@@ -41,11 +42,31 @@ const PAGELAYOUTS: IPageLayout[] = [
 	},
 	{
 		name: 'PageTwo',
+		title: 'Page Two',
 		contentBlocks: [
 			{
 				name: 'ContentBlock2Component',
 				inputs: [
 					{ key: 'message', value: 'This is a content block 2 component' }
+				]
+			}
+		]
+	},
+	{
+		name: 'PageThree',
+		title: 'Page Three',
+		contentBlocks: [
+			{
+				name: 'ContentBlock1Component',
+				inputs: [
+					{ key: 'message', value: 'This is the 1st content block of the content block 1 component on page 3' },
+					{ key: 'background-color', value: 'red' }
+				]
+			},
+			{
+				name: 'ContentBlock2Component',
+				inputs: [
+					{ key: 'message', value: 'This is the 1st content block of the content block 2 component on page 3' }
 				]
 			}
 		]

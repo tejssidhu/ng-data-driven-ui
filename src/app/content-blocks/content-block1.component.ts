@@ -7,10 +7,15 @@ import { Component, Injector } from '@angular/core';
 })
 export class ContentBlock1Component {
 	message = '';
-	backgroundColour: '';
+	backgroundColour = '';
 
 	constructor(injector: Injector) {
 		this.message = injector.get('message');
 		this.backgroundColour = injector.get('background-color');
+	}
+
+	changeBackgroundColour(event) {
+		this.backgroundColour = 'blue';
+		return false;
 	}
 }

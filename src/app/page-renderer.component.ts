@@ -40,6 +40,7 @@ export default class PageRendererComponent {
 
 			// Inputs need to be in the following format to be resolved properly
 			const inputProviders = contentBlock.inputs.map((pair) => ({ provide: pair.key, useValue: pair.value }));
+			inputProviders.push({ provide: 'id', useValue: contentBlock.id });
 			const resolvedInputs = ReflectiveInjector.resolve(inputProviders);
 
 			// We create an injector out of the data we want to pass down to this components injector

@@ -20,7 +20,7 @@ export class ContentBlock1Component extends ContentBlockBaseComponent {
 		this.backgroundColour = injector.get('background-color');
 		this.oldBackgroundColor = 'blue';
 
-		// how to listen and respond to when the raisedEvents changes
+		// TODO: how to listen and respond to when the raisedEvents changes
 	}
 
 	toggleBackgroundColour(event) {

@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+.row-single {
+    height: 75px;
+}
+
+.row-double {
+    height: 150px;
+}
+
+.row-triple {
+    height: 225px;
+}
+
+.row-quadruple {
+    height: 300px;
+}

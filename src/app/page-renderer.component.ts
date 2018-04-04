@@ -2,7 +2,7 @@ import { Component, ViewContainerRef, ViewChild,
 	ReflectiveInjector, ComponentFactoryResolver, Input } from '@angular/core';
 import { ContentBlock1Component } from './content-blocks/content-block1.component';
 import { ContentBlock2Component } from './content-blocks/content-block2.component';
-import { IPageLayout, IContentBlock } from './common';
+import { IPageLayout, IContentBlock, IContentBlockLayout } from './common';
 import { IPageEvent } from './common/models/page-event';
 import { ContentBlockBaseComponent } from './content-blocks/content-block-base.component';
 
@@ -38,9 +38,13 @@ export default class PageRendererComponent {
 		for (let index = 0; index < pageDef.contentBlocks.length; index++) {
 			const contentBlock: IContentBlock = pageDef.contentBlocks[index];
 
-			// Inputs need to be in the following format to be resolved properly
+			// Define the inputs to pass to our dynamically created components
+			// contentBlock.inputs
 			const inputProviders = contentBlock.inputs.map((pair) => ({ provide: pair.key, useValue: pair.value }));
-			inputProviders.push({ provide: 'id', useValue: contentBlock.id });
+			// contentBlock.layout properties and content block id
+			const layoutForContentBlock: IContentBlockLayout = pageDef.layouts.find((layout) => layout.id === contentBlock.id);
+			Object.keys(layoutForContentBlock).map((inputName) => ( inputProviders.push({ provide: inputName, useValue: layoutForContentBlock[inputName] })));
+
 			const resolvedInputs = ReflectiveInjector.resolve(inputProviders);
 
 			// We create an injector out of the data we want to pass down to this components injector

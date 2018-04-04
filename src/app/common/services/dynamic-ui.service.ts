@@ -23,6 +23,22 @@ const PAGELAYOUTS: IPageLayout[] = [
 	{
 		name: 'PageOne',
 		title: 'Page One',
+		layouts: [
+			{
+				id: 'cb1-1',
+				xs: 12,
+				sm: 6,
+				md: 4,
+				lg: 3
+			},
+			{
+				id: 'cb1-2',
+				xs: 12,
+				sm: 6,
+				md: 4,
+				lg: 3
+			}
+		],
 		contentBlocks: [
 			{
 				name: 'ContentBlock1Component',
@@ -45,6 +61,15 @@ const PAGELAYOUTS: IPageLayout[] = [
 	{
 		name: 'PageTwo',
 		title: 'Page Two',
+		layouts: [
+			{
+				id: 'cb2-1',
+				xs: 12,
+				sm: 12,
+				md: 12,
+				lg: 12
+			}
+		],
 		contentBlocks: [
 			{
 				name: 'ContentBlock2Component',
@@ -58,6 +83,22 @@ const PAGELAYOUTS: IPageLayout[] = [
 	{
 		name: 'PageThree',
 		title: 'Page Three',
+		layouts: [
+			{
+				id: 'cb1-1',
+				xs: 12,
+				sm: 8,
+				md: 4,
+				lg: 3
+			},
+			{
+				id: 'cb2-1',
+				xs: 12,
+				sm: 8,
+				md: 4,
+				lg: 3
+			}
+		],
 		contentBlocks: [
 			{
 				name: 'ContentBlock1Component',

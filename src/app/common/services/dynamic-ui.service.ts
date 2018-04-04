@@ -27,16 +27,34 @@ const PAGELAYOUTS: IPageLayout[] = [
 			{
 				id: 'cb1-1',
 				xs: 12,
-				sm: 6,
+				sm: 4,
 				md: 4,
-				lg: 3
+				lg: 2,
+				rowHeight: 'double'
 			},
 			{
 				id: 'cb1-2',
 				xs: 12,
-				sm: 6,
-				md: 4,
-				lg: 3
+				sm: 4,
+				md: 8,
+				lg: 5,
+				rowHeight: 'single'
+			},
+			{
+				id: 'cb1-3',
+				xs: 12,
+				sm: 4,
+				md: 8,
+				lg: 5,
+				rowHeight: 'single'
+			},
+			{
+				id: 'cb2-1',
+				xs: 12,
+				sm: 12,
+				md: 12,
+				lg: 12,
+				rowHeight: 'single'
 			}
 		],
 		contentBlocks: [
@@ -44,7 +62,7 @@ const PAGELAYOUTS: IPageLayout[] = [
 				name: 'ContentBlock1Component',
 				id: 'cb1-1',
 				inputs: [
-					{ key: 'message', value: 'This is the 1st content block of the content block 1 component' },
+					{ key: 'message', value: 'Content Block 1 - 1st' },
 					{ key: 'background-color', value: 'red' }
 				]
 			},
@@ -52,8 +70,24 @@ const PAGELAYOUTS: IPageLayout[] = [
 				name: 'ContentBlock1Component',
 				id: 'cb1-2',
 				inputs: [
-					{ key: 'message', value: 'This is the 2nd content block of the content block 1 component' },
+					{ key: 'message', value: 'Content Block 1 - 2nd' },
 					{ key: 'background-color', value: 'green' }
+				]
+			},
+			{
+				name: 'ContentBlock1Component',
+				id: 'cb1-3',
+				inputs: [
+					{ key: 'message', value: 'Content Block 1 - 3rd' },
+					{ key: 'background-color', value: 'green' }
+				]
+			},
+			{
+				name: 'ContentBlock2Component',
+				id: 'cb2-1',
+				inputs: [
+					{ key: 'message', value: 'This is a content block 2 component' },
+					{ key: 'background-color', value: 'yellow' }
 				]
 			}
 		]
@@ -67,7 +101,8 @@ const PAGELAYOUTS: IPageLayout[] = [
 				xs: 12,
 				sm: 12,
 				md: 12,
-				lg: 12
+				lg: 12,
+				rowHeight: 'single'
 			}
 		],
 		contentBlocks: [
@@ -75,7 +110,8 @@ const PAGELAYOUTS: IPageLayout[] = [
 				name: 'ContentBlock2Component',
 				id: 'cb2-1',
 				inputs: [
-					{ key: 'message', value: 'This is a content block 2 component' }
+					{ key: 'message', value: 'This is a content block 2 component' },
+					{ key: 'background-color', value: 'yellow' }
 				]
 			}
 		]
@@ -89,14 +125,16 @@ const PAGELAYOUTS: IPageLayout[] = [
 				xs: 12,
 				sm: 8,
 				md: 4,
-				lg: 3
+				lg: 3,
+				rowHeight: 'triple'
 			},
 			{
 				id: 'cb2-1',
 				xs: 12,
 				sm: 8,
 				md: 4,
-				lg: 3
+				lg: 3,
+				rowHeight: 'single'
 			}
 		],
 		contentBlocks: [
@@ -112,7 +150,8 @@ const PAGELAYOUTS: IPageLayout[] = [
 				name: 'ContentBlock2Component',
 				id: 'cb2-1',
 				inputs: [
-					{ key: 'message', value: 'This is the 1st content block of the content block 2 component on page 3' }
+					{ key: 'message', value: 'This is the 1st content block of the content block 2 component on page 3' },
+					{ key: 'background-color', value: 'yellow' }
 				]
 			}
 		]

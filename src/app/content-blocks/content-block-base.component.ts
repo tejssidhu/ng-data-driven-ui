@@ -15,7 +15,9 @@ export class ContentBlockBaseComponent {
 	colSm: number;
 	colMd: number;
 	colLg: number;
-	colClass: string;
+	rowHeight: string;
+	componentHeightClass: string;
+	componentLayoutClass: string;
 
 	constructor(injector: Injector) {
 		this.id = injector.get('id');
@@ -23,6 +25,8 @@ export class ContentBlockBaseComponent {
 		this.colSm = injector.get('sm');
 		this.colMd = injector.get('md');
 		this.colLg = injector.get('lg');
-		this.colClass = 'col-xs-' + this.colXs + ' col-sm-' + this.colSm + ' col-md-' + this.colMd + ' col-lg-' + this.colLg;
+		this.rowHeight = injector.get('rowHeight');
+		this.componentHeightClass = 'row-' + this.rowHeight;
+		this.componentLayoutClass = 'col-xs-' + this.colXs + ' col-sm-' + this.colSm + ' col-md-' + this.colMd + ' col-lg-' + this.colLg + ' row-' + this.rowHeight;
 	}
 }

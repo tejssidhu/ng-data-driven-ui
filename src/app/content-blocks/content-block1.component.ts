@@ -30,7 +30,7 @@ export class ContentBlock1Component extends ContentBlockBaseComponent {
 
 		this.emitEvent.next({
 				name: 'background colour changed',
-				componentRaisedBy: 'ContetBlock1Component',
+				componentRaisedBy: this.id,
 				componentTarget: 'ContentBlock2Component',
 				data: { value: this.backgroundColour }
 			});

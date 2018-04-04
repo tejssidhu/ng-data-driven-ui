@@ -1,5 +1,5 @@
 import { Component, ViewContainerRef, ViewChild,
-	ReflectiveInjector, ComponentFactoryResolver, Input } from '@angular/core';
+	ReflectiveInjector, ComponentFactoryResolver, Input, Output, EventEmitter } from '@angular/core';
 import { ContentBlock1Component } from './content-blocks/content-block1.component';
 import { ContentBlock2Component } from './content-blocks/content-block2.component';
 import { IPageLayout, IContentBlock, IContentBlockLayout } from './common';
@@ -15,6 +15,8 @@ import { ContentBlockBaseComponent } from './content-blocks/content-block-base.c
 })
 export default class PageRendererComponent {
 	@ViewChild('pageContentContainer', { read: ViewContainerRef }) pageContentContainer: ViewContainerRef;
+
+
 	// registry to convert string values to their corresponding component type
 	componentRegistry = {
 		'ContentBlock1Component': ContentBlock1Component,
@@ -54,12 +56,6 @@ export default class PageRendererComponent {
 
 			// We create a factory out of the component we want to create
 			const factory = this.resolver.resolveComponentFactory(componentType);
-
-			// We create the component using the factory and the injector
-			// const component = factory.create(injector);
-
-			// We insert the component into the dom container
-			// this.pageContentContainer.insert(component.hostView);
 
 			const component = this.pageContentContainer.createComponent(factory, index, injector).instance;
 			(component as ContentBlockBaseComponent).raisedEvents = this.pageEvents;

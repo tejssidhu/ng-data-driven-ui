@@ -1,4 +1,6 @@
-<div [className]="colClass">
-    <div [style.background-color]="backgroundColour">{{message}} - {{backgroundColour}}</div>
-    <a href="#" (click)="toggleBackgroundColour()">toggle background colour</a>
+<div [className]="componentLayoutClass" >
+    <div [className]="componentHeightClass" [style.background-color]="backgroundColour">
+        <div>{{message}} - {{backgroundColour}}</div>
+        <a href="#" (click)="toggleBackgroundColour()">toggle background colour</a>
+    </div>
 </div>

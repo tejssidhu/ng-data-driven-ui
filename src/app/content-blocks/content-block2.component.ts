@@ -8,10 +8,12 @@ import { ContentBlockBaseComponent } from './content-block-base.component';
 })
 export class ContentBlock2Component extends ContentBlockBaseComponent {
 	message = '';
+	backgroundColour = '';
 
 	constructor(injector: Injector) {
 		super(injector);
 		this.message = injector.get('message');
+		this.backgroundColour = injector.get('background-color');
 
 		// TODO: how to listen and respond to when the raisedEvents changes
 	}

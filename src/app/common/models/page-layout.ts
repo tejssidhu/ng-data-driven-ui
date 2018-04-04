@@ -17,6 +17,7 @@ export interface IContentBlockLayout {
 	sm: number;
 	md: number;
 	lg: number;
+	rowHeight: string;
 }
 
 export interface IKeyValue {

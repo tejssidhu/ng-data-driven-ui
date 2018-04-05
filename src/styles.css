@@ -1,16 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
 .row-single {
     height: 75px;
+    overflow-y: auto;
 }
 
 .row-double {
     height: 150px;
+    overflow-y: auto;
 }
 
 .row-triple {
     height: 225px;
+    overflow-y: auto;
 }
 
 .row-quadruple {
     height: 300px;
+    overflow-y: auto;
 }

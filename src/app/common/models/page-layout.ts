@@ -9,6 +9,7 @@ export interface IContentBlock {
 	name: string;
 	id: string;
 	inputs?: IKeyValue[];
+	eventRecipients?: string[];
 }
 
 export interface IContentBlockLayout {

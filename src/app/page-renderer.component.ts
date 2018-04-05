@@ -6,6 +6,11 @@ import { IPageLayout, IContentBlock, IContentBlockLayout } from './common';
 import { IPageEvent } from './common/models/page-event';
 import { ContentBlockBaseComponent } from './content-blocks/content-block-base.component';
 
+export interface IRegisteredComponent {
+	id: string;
+	component: ContentBlockBaseComponent;
+}
+
 @Component({
 	selector: 'app-page-renderer',
 	entryComponents: [ContentBlock1Component, ContentBlock2Component],
@@ -15,17 +20,15 @@ import { ContentBlockBaseComponent } from './content-blocks/content-block-base.c
 })
 export default class PageRendererComponent {
 	@ViewChild('pageContentContainer', { read: ViewContainerRef }) pageContentContainer: ViewContainerRef;
-
-
 	// registry to convert string values to their corresponding component type
-	componentRegistry = {
+	componentLookup = {
 		'ContentBlock1Component': ContentBlock1Component,
 		'ContentBlock2Component': ContentBlock2Component
 	};
-	pageEvents: IPageEvent[];
+	registeredComponents: IRegisteredComponent[] = [];
 
 	constructor(private resolver: ComponentFactoryResolver) {
-		this.pageEvents = [];
+
 	}
 
   	// components: a string value of the component you want to create
@@ -36,6 +39,7 @@ export default class PageRendererComponent {
 		}
 
 		this.pageContentContainer.clear();
+		this.registeredComponents = [];
 
 		for (let index = 0; index < pageDef.contentBlocks.length; index++) {
 			const contentBlock: IContentBlock = pageDef.contentBlocks[index];
@@ -46,24 +50,31 @@ export default class PageRendererComponent {
 			// contentBlock.layout properties and content block id
 			const layoutForContentBlock: IContentBlockLayout = pageDef.layouts.find((layout) => layout.id === contentBlock.id);
 			Object.keys(layoutForContentBlock).map((inputName) => ( inputProviders.push({ provide: inputName, useValue: layoutForContentBlock[inputName] })));
+			if (contentBlock.eventRecipients) {
+				inputProviders.push({ provide: 'eventRecipients', useValue: JSON.stringify(contentBlock.eventRecipients) });
+			}
 
 			const resolvedInputs = ReflectiveInjector.resolve(inputProviders);
 
 			// We create an injector out of the data we want to pass down to this components injector
 			const injector = ReflectiveInjector.fromResolvedProviders(resolvedInputs, this.pageContentContainer.parentInjector);
 
-			const componentType = this.componentRegistry[contentBlock.name];
+			const componentType = this.componentLookup[contentBlock.name];
 
 			// We create a factory out of the component we want to create
 			const factory = this.resolver.resolveComponentFactory(componentType);
 
 			const component = this.pageContentContainer.createComponent(factory, index, injector).instance;
-			(component as ContentBlockBaseComponent).raisedEvents = this.pageEvents;
+			const baseComp = (component as ContentBlockBaseComponent);
 			component['emitEvent'].subscribe((eventData) => {
-				this.pageEvents.push(eventData);
-				console.log(eventData);
+				for (let itr = 0; itr < this.registeredComponents.length; itr++) {
+					this.registeredComponents[itr].component.raisedEvent = eventData;
+				}
 			});
 
+			if (!this.registeredComponents.find((comp) => comp.id === contentBlock.id)) {
+				this.registeredComponents.push( { id: contentBlock.id, component: baseComp });
+			}
 		}
 	}
 }

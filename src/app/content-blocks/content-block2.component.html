@@ -1,5 +1,10 @@
 <div [className]="componentLayoutClass" >
     <div [className]="componentHeightClass" [style.background-color]="backgroundColour">
         <div>{{this.message}}</div>
+        <ul>
+            <ng-container *ngFor="let event of events">
+                <li>{{event}}</li>
+            </ng-container>
+        </ul>
     </div>
 </div>

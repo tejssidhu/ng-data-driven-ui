@@ -8,8 +8,16 @@ import { Observable } from 'rxjs/Observable';
 export class ContentBlockBaseComponent {
 	@Output()
 	emitEvent = new EventEmitter<IPageEvent>();
-	@Input()
-	raisedEvents: IPageEvent[];
+
+	private _raisedEvent: IPageEvent;
+	@Input() set raisedEvent(value: IPageEvent) {
+		this._raisedEvent = value;
+		this.handleEvent(this._raisedEvent);
+	}
+	get raisedEvents(): IPageEvent {
+		return this._raisedEvent;
+	}
+
 	id: string;
 	colXs: number;
 	colSm: number;
@@ -18,6 +26,7 @@ export class ContentBlockBaseComponent {
 	rowHeight: string;
 	componentHeightClass: string;
 	componentLayoutClass: string;
+	eventRecipients: string[];
 
 	constructor(injector: Injector) {
 		this.id = injector.get('id');
@@ -28,5 +37,16 @@ export class ContentBlockBaseComponent {
 		this.rowHeight = injector.get('rowHeight');
 		this.componentHeightClass = 'row-' + this.rowHeight;
 		this.componentLayoutClass = 'col-xs-' + this.colXs + ' col-sm-' + this.colSm + ' col-md-' + this.colMd + ' col-lg-' + this.colLg + ' row-' + this.rowHeight;
+
+		try {
+			this.eventRecipients = JSON.parse(injector.get('eventRecipients'));
+		} catch (e) {
+			this.eventRecipients = undefined;
+			console.log('this component ' + this.id + ' doesnt have any eventRecipients');
+		}
+	}
+
+	handleEvent(events: IPageEvent) {
+
 	}
 }

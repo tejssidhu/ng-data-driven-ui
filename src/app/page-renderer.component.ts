@@ -5,6 +5,9 @@ import { ContentBlock2Component } from './content-blocks/content-block2.componen
 import { IPageLayout, IContentBlock, IContentBlockLayout } from './common';
 import { IPageEvent } from './common/models/page-event';
 import { ContentBlockBaseComponent } from './content-blocks/content-block-base.component';
+import { DataGridContentBlockComponent } from './content-blocks/data-grid-content-block.component';
+import { FormContentBlockComponent } from './content-blocks/form-content-block.component';
+import { NotificationContentBlockComponent } from './content-blocks/notification-content-block.component';
 
 export interface IRegisteredComponent {
 	id: string;
@@ -13,7 +16,7 @@ export interface IRegisteredComponent {
 
 @Component({
 	selector: 'app-page-renderer',
-	entryComponents: [ContentBlock1Component, ContentBlock2Component],
+	entryComponents: [ContentBlock1Component, ContentBlock2Component, NotificationContentBlockComponent, FormContentBlockComponent, DataGridContentBlockComponent],
 	template: `
 		<div #pageContentContainer></div>
   	`,
@@ -23,7 +26,10 @@ export default class PageRendererComponent {
 	// registry to convert string values to their corresponding component type
 	componentLookup = {
 		'ContentBlock1Component': ContentBlock1Component,
-		'ContentBlock2Component': ContentBlock2Component
+		'ContentBlock2Component': ContentBlock2Component,
+		'DataGridContentBlockComponent': DataGridContentBlockComponent,
+		'FormContentBlockComponent': FormContentBlockComponent,
+		'NotificationContentBlockComponent': NotificationContentBlockComponent
 	};
 	registeredComponents: IRegisteredComponent[] = [];
 

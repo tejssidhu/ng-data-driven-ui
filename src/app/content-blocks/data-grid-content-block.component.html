@@ -1,0 +1,33 @@
+<div [className]="componentLayoutClass" >
+    <div [className]="componentHeightClass">
+        <h2>{{this.title}}</h2>
+
+        <div class="table-responsive">
+            <table class="table table-hover table-striped table-condensed">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Forename</th>
+                        <th>Surname</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngFor="let item of items">
+                        <tr>
+                            <td (click)="gridRowClicked(item.id)">{{item.title}}</td>
+                            <td (click)="gridRowClicked(item.id)">{{item.forename}}</td>
+                            <td (click)="gridRowClicked(item.id)">{{item.surname}}</td>
+                            <td><button type="button" class="btn btn-primary btn-xs" (click)="gridRowClicked(item.id)">Edit</button></td>
+                            <td><button type="button" class="btn btn-danger btn-xs" (click)="gridItemDeleteClicked(item.id)">Delete</button></td>
+                        </tr>
+                    </ng-container>
+                </tbody>
+            </table>
+        </div>
+        <div class="form-group">
+            <button type="button" class="btn btn-primary" (click)="gridNewItemClicked()">Add New</button>
+        </div>
+    </div>
+</div>

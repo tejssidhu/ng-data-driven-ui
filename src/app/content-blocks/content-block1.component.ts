@@ -1,6 +1,7 @@
 import { Component, Injector } from '@angular/core';
 import { ContentBlockBaseComponent } from './content-block-base.component';
-import { IPageEvent, EventTypes } from '../common/models/page-event';
+import { IPageEvent } from '../common/models/page-event';
+import { EventTypes } from '../common/models/event-types';
 
 @Component({
 	moduleId: module.id,

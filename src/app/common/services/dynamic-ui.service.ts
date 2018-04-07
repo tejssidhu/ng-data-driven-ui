@@ -55,6 +55,14 @@ const PAGELAYOUTS: IPageLayout[] = [
 				md: 12,
 				lg: 12,
 				rowHeight: 'single'
+			},
+			{
+				id: 'dg-cb-1-1',
+				xs: 12,
+				sm: 12,
+				md: 12,
+				lg: 12,
+				rowHeight: 'triple'
 			}
 		],
 		contentBlocks: [
@@ -92,6 +100,16 @@ const PAGELAYOUTS: IPageLayout[] = [
 					{ key: 'message', value: 'This is a content block 2 component' },
 					{ key: 'background-color', value: '#FEF59F' }
 				]
+			},
+			{
+				name: 'DataGridContentBlockComponent',
+				id: 'dg-cb-1-1',
+				inputs: [
+					{ key: 'title', value: 'My Items' },
+					{ key: 'dataUrl', value: 'http://www.dataservice.com/' },
+					{ key: 'objectName', value: 'Items' }
+				],
+				eventRecipients: ['cb1-1']
 			}
 		]
 	},

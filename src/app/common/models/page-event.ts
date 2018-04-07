@@ -1,14 +1,9 @@
-export enum EventTypes {
-	GridRowClicked,
-	GridDeleteClicked,
-	GridNewItemClicked,
-	ItemSaved
-}
+import * as Enums from './event-types';
 
 export interface IPageEvent {
 	name: string;
 	componentRaisedBy: string;
 	componentTargets: string[];
-	eventType: EventTypes;
+	eventType: Enums.EventTypes;
 	data: any;
 }

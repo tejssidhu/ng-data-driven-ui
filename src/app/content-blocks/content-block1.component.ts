@@ -1,6 +1,6 @@
 import { Component, Injector } from '@angular/core';
 import { ContentBlockBaseComponent } from './content-block-base.component';
-import { IPageEvent } from '../common/models/page-event';
+import { IPageEvent, EventTypes } from '../common/models/page-event';
 
 @Component({
 	moduleId: module.id,
@@ -34,6 +34,7 @@ export class ContentBlock1Component extends ContentBlockBaseComponent {
 				name: 'background colour changed',
 				componentRaisedBy: this.id,
 				componentTargets: targets,
+				eventType: EventTypes.GridDeleteClicked,
 				data: { value: this.backgroundColour }
 			});
 
@@ -44,7 +45,7 @@ export class ContentBlock1Component extends ContentBlockBaseComponent {
 		if (event.componentTargets && event.componentTargets.find((target) => target === this.id)) {
 			this.eventCounter++;
 			console.log('Event was for me ' + this.id + ' :-) - I must do something with this data');
-			console.log(event.data);
+			console.log(event);
 		}
 	}
 }

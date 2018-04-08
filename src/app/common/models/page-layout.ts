@@ -23,5 +23,5 @@ export interface IContentBlockLayout {
 
 export interface IKeyValue {
 	key: string;
-	value: string;
+	value: any;
 }

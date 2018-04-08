@@ -11,7 +11,9 @@ import {
 	ContentBlock2Component,
 	DataGridContentBlockComponent,
 	FormContentBlockComponent,
-	NotificationContentBlockComponent
+	NotificationContentBlockComponent,
+	DataGridHeaderColComponent,
+	DataGridColComponent
 } from './content-blocks/index';
 import PageRendererComponent from './page-renderer.component';
 import { PageResolver, PageComponent } from './pages/index';
@@ -26,6 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
 		NotificationContentBlockComponent,
 		FormContentBlockComponent,
 		DataGridContentBlockComponent,
+		DataGridHeaderColComponent,
+		DataGridColComponent,
 		PageRendererComponent,
 		PageComponent
 	],

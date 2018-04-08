@@ -107,60 +107,80 @@ const ITEMS: any[] = [
 		id: 1,
 		title: 'title 1',
 		forename: 'forename 1',
-		surname: 'surname 1'
+		surname: 'surname 1',
+		job: 'job title 1',
+		contactNumber: 'contact number 1'
 	},
 	{
 		id: 2,
 		title: 'title 2',
 		forename: 'forename 2',
-		surname: 'surname 2'
+		surname: 'surname 2',
+		job: 'job title 2',
+		contactNumber: 'contact number 2'
 	},
 	{
 		id: 3,
 		title: 'title 3',
 		forename: 'forename 3',
-		surname: 'surname 3'
+		surname: 'surname 3',
+		job: 'job title 3',
+		contactNumber: 'contact number 3'
 	},
 	{
 		id: 4,
 		title: 'title 4',
 		forename: 'forename 4',
-		surname: 'surname 4'
+		surname: 'surname 4',
+		job: 'job title 4',
+		contactNumber: 'contact number 4'
 	},
 	{
 		id: 5,
 		title: 'title 5',
 		forename: 'forename 5',
-		surname: 'surname 5'
+		surname: 'surname 5',
+		job: 'job title 5',
+		contactNumber: 'contact number 5'
 	},
 	{
 		id: 6,
 		title: 'title 6',
 		forename: 'forename 6',
-		surname: 'surname 6'
+		surname: 'surname 6',
+		job: 'job title 6',
+		contactNumber: 'contact number 6'
 	},
 	{
 		id: 7,
 		title: 'title 7',
 		forename: 'forename 7',
-		surname: 'surname 7'
+		surname: 'surname 7',
+		job: 'job title 7',
+		contactNumber: 'contact number 7'
 	},
 	{
 		id: 8,
 		title: 'title 8',
 		forename: 'forename 8',
-		surname: 'surname 8'
+		surname: 'surname 8',
+		job: 'job title 8',
+		contactNumber: 'contact number 8'
 	},
 	{
 		id: 9,
 		title: 'title 9',
 		forename: 'forename 9',
-		surname: 'surname 9'
+		surname: 'surname 9',
+		job: 'job title 9',
+		contactNumber: 'contact number 9'
 	},
 	{
 		id: 10,
 		title: 'title 10',
 		forename: 'forename 10',
-		surname: 'surname 10'
+		surname: 'surname 10',
+		job: 'job title 10',
+		contactNumber: 'contact number 10'
 	}
 ];

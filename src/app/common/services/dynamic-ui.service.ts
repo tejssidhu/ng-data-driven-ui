@@ -62,7 +62,7 @@ const PAGELAYOUTS: IPageLayout[] = [
 				sm: 12,
 				md: 12,
 				lg: 12,
-				rowHeight: 'triple'
+				rowHeight: 'quadruple'
 			}
 		],
 		contentBlocks: [
@@ -107,7 +107,13 @@ const PAGELAYOUTS: IPageLayout[] = [
 				inputs: [
 					{ key: 'title', value: 'My Items' },
 					{ key: 'dataUrl', value: 'http://www.dataservice.com/' },
-					{ key: 'objectName', value: 'Items' }
+					{ key: 'objectName', value: 'Items' },
+					{ key: 'columns', value: [
+						{title: 'Title', columnName: 'title'},
+						{title: 'Forename', columnName: 'forename'},
+						{title: 'Surname', columnName: 'surname'},
+						{title: 'Job', columnName: 'job'}
+					]}
 				],
 				eventRecipients: ['cb1-1']
 			}

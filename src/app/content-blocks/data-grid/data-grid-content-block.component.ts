@@ -1,8 +1,10 @@
 import { Component, Injector, OnInit } from '@angular/core';
-import { ContentBlockBaseComponent } from './content-block-base.component';
-import { IPageEvent } from '../common/models/page-event';
-import { ODataService } from '../services/o-data.service';
-import { EventTypes } from '../common/models/event-types';
+import { ContentBlockBaseComponent } from '../content-block-base.component';
+import { IPageEvent } from '../../common/models/page-event';
+import { ODataService } from '../../services/o-data.service';
+import { EventTypes } from '../../common/models/event-types';
+import { DataGridHeaderColComponent } from './data-grid-header-col.component';
+import { DataGridColComponent } from './data-grid-col.component';
 
 @Component({
 	moduleId: module.id,
@@ -14,12 +16,14 @@ export class DataGridContentBlockComponent extends ContentBlockBaseComponent imp
 	items: any[];
 	dataUrl: string;
 	objectName: string;
+	columns: string[];
 
 	constructor(injector: Injector, private oDataService: ODataService) {
 		super(injector);
 		this.title = injector.get('title');
 		this.dataUrl = injector.get('dataUrl');
 		this.objectName = injector.get('objectName');
+		this.columns = injector.get('columns');
 	}
 
 	ngOnInit(): void {
@@ -61,6 +65,10 @@ export class DataGridContentBlockComponent extends ContentBlockBaseComponent imp
 			eventType: EventTypes.GridNewItemClicked,
 			data: {  }
 		});
+	}
+
+	getValue(item: any, colName: string) {
+		return item[colName];
 	}
 
 	handleEvent(event: IPageEvent) {

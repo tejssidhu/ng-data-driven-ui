@@ -5,7 +5,7 @@ import { ContentBlock2Component } from './content-blocks/content-block2.componen
 import { IPageLayout, IContentBlock, IContentBlockLayout } from './common';
 import { IPageEvent } from './common/models/page-event';
 import { ContentBlockBaseComponent } from './content-blocks/content-block-base.component';
-import { DataGridContentBlockComponent } from './content-blocks/data-grid-content-block.component';
+import { DataGridContentBlockComponent } from './content-blocks/data-grid/data-grid-content-block.component';
 import { FormContentBlockComponent } from './content-blocks/form-content-block.component';
 import { NotificationContentBlockComponent } from './content-blocks/notification-content-block.component';
 

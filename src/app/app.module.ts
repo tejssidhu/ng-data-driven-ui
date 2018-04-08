@@ -19,6 +19,8 @@ import PageRendererComponent from './page-renderer.component';
 import { PageResolver, PageComponent } from './pages/index';
 import { ODataService } from './services/o-data.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ConfirmationContentBlockComponent } from './content-blocks/confirmation-content-block.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
 	declarations: [
@@ -31,12 +33,14 @@ import { HttpClientModule } from '@angular/common/http';
 		DataGridHeaderColComponent,
 		DataGridColComponent,
 		PageRendererComponent,
-		PageComponent
+		PageComponent,
+		ConfirmationContentBlockComponent
 	],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
-		HttpClientModule
+		HttpClientModule,
+		ModalModule.forRoot()
 	],
 	providers: [
 		DynamicUiService,

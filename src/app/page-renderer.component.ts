@@ -8,6 +8,7 @@ import { ContentBlockBaseComponent } from './content-blocks/content-block-base.c
 import { DataGridContentBlockComponent } from './content-blocks/data-grid/data-grid-content-block.component';
 import { FormContentBlockComponent } from './content-blocks/form-content-block.component';
 import { NotificationContentBlockComponent } from './content-blocks/notification-content-block.component';
+import { ConfirmationContentBlockComponent } from './content-blocks';
 
 export interface IRegisteredComponent {
 	id: string;
@@ -16,7 +17,13 @@ export interface IRegisteredComponent {
 
 @Component({
 	selector: 'app-page-renderer',
-	entryComponents: [ContentBlock1Component, ContentBlock2Component, NotificationContentBlockComponent, FormContentBlockComponent, DataGridContentBlockComponent],
+	entryComponents: [ContentBlock1Component,
+		ContentBlock2Component,
+		NotificationContentBlockComponent,
+		FormContentBlockComponent,
+		DataGridContentBlockComponent,
+		ConfirmationContentBlockComponent
+	],
 	template: `
 		<div #pageContentContainer></div>
   	`,
@@ -29,7 +36,8 @@ export default class PageRendererComponent {
 		'ContentBlock2Component': ContentBlock2Component,
 		'DataGridContentBlockComponent': DataGridContentBlockComponent,
 		'FormContentBlockComponent': FormContentBlockComponent,
-		'NotificationContentBlockComponent': NotificationContentBlockComponent
+		'NotificationContentBlockComponent': NotificationContentBlockComponent,
+		'ConfirmationContentBlockComponent': ConfirmationContentBlockComponent
 	};
 	registeredComponents: IRegisteredComponent[] = [];
 

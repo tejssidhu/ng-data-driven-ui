@@ -5,3 +5,4 @@ export * from './data-grid/data-grid-header-col.component';
 export * from './data-grid/data-grid-col.component';
 export * from './form-content-block.component';
 export * from './notification-content-block.component';
+export * from './confirmation-content-block.component';

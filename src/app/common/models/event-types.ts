@@ -2,6 +2,8 @@ export enum EventTypes {
 	GridRowClicked,
 	GridDeleteClicked,
 	GridNewItemClicked,
-	ItemSaved
+	ItemSaved,
+	ConfirmationOkClicked,
+	ConfirmationCancelClicked
 }
 

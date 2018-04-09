@@ -21,6 +21,8 @@ import { ODataService } from './services/o-data.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ConfirmationContentBlockComponent } from './content-blocks/confirmation-content-block.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { ToastModule } from 'ng2-toastr/ng2-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
 	declarations: [
@@ -40,7 +42,9 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 		BrowserModule,
 		AppRoutingModule,
 		HttpClientModule,
-		ModalModule.forRoot()
+		ModalModule.forRoot(),
+		BrowserAnimationsModule,
+		ToastModule.forRoot()
 	],
 	providers: [
 		DynamicUiService,

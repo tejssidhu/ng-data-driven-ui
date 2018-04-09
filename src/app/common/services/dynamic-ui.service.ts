@@ -71,6 +71,14 @@ const PAGELAYOUTS: IPageLayout[] = [
 				md: 0,
 				lg: 0,
 				rowHeight: 'single'
+			},
+			{
+				id: 'n-cb-1-1',
+				xs: 0,
+				sm: 0,
+				md: 0,
+				lg: 0,
+				rowHeight: 'single'
 			}
 		],
 		contentBlocks: [
@@ -123,13 +131,18 @@ const PAGELAYOUTS: IPageLayout[] = [
 						{title: 'Job', columnName: 'job'}
 					]}
 				],
-				eventRecipients: ['cb1-1', 'c-cb-1-1']
+				eventRecipients: ['cb1-1', 'c-cb-1-1', 'n-cb-1-1']
 			},
 			{
 				name: 'ConfirmationContentBlockComponent',
 				id: 'c-cb-1-1',
 				inputs: [],
 				eventRecipients: ['dg-cb-1-1']
+			},
+			{
+				name: 'NotificationContentBlockComponent',
+				id: 'n-cb-1-1',
+				inputs: []
 			}
 		]
 	},

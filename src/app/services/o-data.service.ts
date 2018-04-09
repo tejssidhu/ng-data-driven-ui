@@ -71,14 +71,24 @@ export class ODataService {
 	}
 
 	deleteItem(id: string, baseUrl: string, objectName: string, requiresAuth: boolean): Observable<string> {
-		const headers = new HttpHeaders({'Content-Type': 'application/json'});
+		const itemId = id;
+		const itemToDelete: any = ITEMS.find((_item) => _item.id === id);
+		const itemIndex: number = ITEMS.indexOf(itemToDelete);
+		if (itemIndex >= 0) {
+			ITEMS.splice(itemIndex, 1);
+		}
+		const subject = new Subject<string>();
+		setTimeout(() => {subject.next(id); subject.complete(); }, 100);
+		return subject;
+
+		/* const headers = new HttpHeaders({'Content-Type': 'application/json'});
 
 		this.addAuthHeader(requiresAuth, headers);
 
 		return this.http.delete(baseUrl + objectName + '(' + id + ')', {headers: headers}).pipe(
 			tap((response: string) => console.log(`item deleted: Id=${response}`)),
 			catchError(this.handleError<any>('deleteItem'))
-		);
+		); */
 	}
 
 	/**

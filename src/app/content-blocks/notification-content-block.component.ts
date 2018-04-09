@@ -2,19 +2,18 @@ import { Component, Injector } from '@angular/core';
 import { ContentBlockBaseComponent } from './content-block-base.component';
 import { IPageEvent } from '../common/models/page-event';
 import { EventTypes } from '../common/models/event-types';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 @Component({
 	moduleId: module.id,
 	selector: 'app-notification-content-block',
-	templateUrl: 'notification-content-block.component.html'
+	template: ``
 })
 export class NotificationContentBlockComponent extends ContentBlockBaseComponent {
-	title = '';
 	events: string[] = [];
 
-	constructor(injector: Injector) {
+	constructor(injector: Injector, private toastr: ToastsManager) {
 		super(injector);
-		this.title = injector.get('title');
 	}
 
 	handleEvent(event: IPageEvent) {
@@ -30,7 +29,12 @@ export class NotificationContentBlockComponent extends ContentBlockBaseComponent
 					console.log('grid delete item clicked');
 					break;
 				case EventTypes.ItemSaved:
+					this.toastr.success(event.data.message);
 					console.log('item saved');
+					break;
+				case EventTypes.ItemDeleted:
+					this.toastr.success(event.data.message);
+					console.log('item deleted successfully');
 					break;
 			}
 

@@ -4,6 +4,7 @@ export enum EventTypes {
 	GridNewItemClicked,
 	ItemSaved,
 	ConfirmationOkClicked,
-	ConfirmationCancelClicked
+	ConfirmationCancelClicked,
+	ItemDeleted
 }
 

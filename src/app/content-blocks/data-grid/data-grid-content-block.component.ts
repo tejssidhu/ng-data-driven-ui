@@ -88,12 +88,16 @@ export class DataGridContentBlockComponent extends ContentBlockBaseComponent imp
 					break;
 				case EventTypes.ConfirmationOkClicked:
 					// TODO: delete it
-					console.log('item deleted');
-					const item: any = this.items.find((_item) => _item.id === event.data.itemId);
-					const itemIndex: number = this.items.indexOf(item);
-					if (itemIndex >= 0) {
-						this.items.splice(itemIndex, 1);
-					}
+					this.oDataService.deleteItem(event.data.itemId, this.dataUrl, this.objectName, false).subscribe((deletedItemId) => {
+						const targets = this.eventRecipients ? this.eventRecipients : [''];
+						this.emitEvent.next({
+							name: EventTypes.ItemDeleted.toString(),
+							componentRaisedBy: this.id,
+							componentTargets: targets,
+							eventType: EventTypes.ItemDeleted,
+							data: { 'message': 'Item successfully deleted' }
+						});
+					});
 					break;
 			}
 		}
